@@ -23,7 +23,7 @@ export default function ProductsPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard: Past Sessions | Minimal UI </title>
+        <title> Past Sessions </title>
       </Helmet>
 
       <Container>
@@ -43,7 +43,6 @@ export default function ProductsPage() {
         </Stack>
 
         <ProductList products={PRODUCTS} />
-        <ProductCartWidget />
       </Container>
     </>
   );

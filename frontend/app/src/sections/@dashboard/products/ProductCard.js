@@ -13,7 +13,7 @@ import { ColorPreview } from '../../../components/color-utils';
 const StyledProductImg = styled('img')({
   top: 0,
   width: '100%',
-  height: '00%',
+  height: '100%',
   objectFit: 'cover',
   position: 'absolute',
 });
@@ -45,7 +45,7 @@ export default function ShopProductCard({ product }) {
             {status}
           </Label>
         )}
-        <StyledProductImg alt={name} src={cover} />
+        <StyledProductImg sx={{ padding: 3 }} alt={name} src={cover} />
       </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
