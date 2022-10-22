@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useLocalStorage from '../../../hooks/useLocalStorage';
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Divider, Typography, Stack, MenuItem, Avatar, IconButton, Popover } from '@mui/material';
@@ -26,13 +27,14 @@ const MENU_OPTIONS = [
 
 export default function AccountPopover() {
   const [open, setOpen] = useState(null);
+  const [_, setAccessToken] = useLocalStorage('accessToken', null);
 
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
   };
 
   const handleClose = () => {
-    setOpen(null);
+    setAccessToken(null);
   };
 
   return (
