@@ -113,6 +113,8 @@ sentry_sdk.init(
     send_default_pii=True,
 )
 
+COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+
 
 # Sendgrid Email Settings
 # https://django-sendgrid.readthedocs.io/en/latest/settings.html
