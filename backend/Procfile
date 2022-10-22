@@ -1,2 +1,3 @@
 web: gunicorn config.asgi:application -w 2 -k uvicorn.workers.UvicornWorker	
+workers: python manage.py runworker --settings=config.settings -v2
 release: python manage.py migrate
