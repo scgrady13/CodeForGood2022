@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Chart from "react-apexcharts";
 
 const ApexChart = ({ data }) => {
@@ -6,11 +6,11 @@ const ApexChart = ({ data }) => {
         <div>
             <Chart
                 type="area"
-                height={300}
+                height={150}
                 width='100%'
                 series={[
                     {
-                        name: "Commits",
+                        name: "Beats per Minute",
                         data: data?.slice(-60).map(data => data.bid)
                     }
                 ]}
@@ -29,9 +29,17 @@ const ApexChart = ({ data }) => {
                     dataLabels: { enabled: false },
                     xaxis: {
                         categories: data?.slice(-60).map(data => data.bid),
+                        labels: {
+                            show: false,
+                        },
                     },
                     yaxis: {
                         show: false,
+                        min: 50,
+                        max: 100
+                    },
+                    tooltip: {
+                        enabled: false
                     }
                 }}
             />
