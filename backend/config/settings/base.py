@@ -16,24 +16,9 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.environ.get("REDIS_URL"),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        },
-    }
-}
-
-
 # Application definition
 DJANGO_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -45,7 +30,6 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "corsheaders",
-    "channels",
 ]
 AUTH_APPS = [
     "allauth",
@@ -72,7 +56,7 @@ TEMPLATES = [
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
-                "django.template.context_processors.request",
+                "django.template.cfontext_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
@@ -159,45 +143,13 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-
-# Django Allauth Settings
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-
-SITE_ID = 1
-
-ACCOUNT_EMAIL_REQUIRED = True
-
-ACCOUNT_EMAIL_VERIFICATION = "optional"
-
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"
-
-ACCOUNT_ADAPTER = "apiauth.adapter.AccountAdapter"
-
-SOCIALACCOUNT_AUTO_SIGNUP = True
-
-
-# Add ASGI application (File used by django channels)
-
+# Add ASGI application
 ASGI_APPLICATION = 'config.asgi.application'
-
-
-# CHANNELS SETTINGS
-
 CHANNEL_LAYERS = {
-  "default": {
-    "BACKEND": "channels_redis.core.RedisChannelLayer",
-    "CONFIG": {
-    "hosts": [("localhost", 6379)],
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [os.environ.get("REDIS_URL", "redis://localhost:6379")],
+        },
     },
-  },
 }
-
-
-# CELERY TASK STUFF
-
-BROKER_URL = 'redis://127.0.0.1:6379'
-CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
