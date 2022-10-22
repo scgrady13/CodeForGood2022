@@ -15,9 +15,9 @@ application = ProtocolTypeRouter(
     {
         "http": django_asgi_app,
         "websocket": AllowedHostsOriginValidator(
-            AuthMiddlewareStack(URLRouter[
-              path("chat/admin/", HealthDataConsumer.as_asgi()),
-            ])
+            AuthMiddlewareStack(
+                URLRouter[path("health-data/", HealthDataConsumer.as_asgi())]
+            )
         ),
     }
 )
