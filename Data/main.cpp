@@ -121,7 +121,7 @@ void ShellSort(vector<C1>& varray, int code) {
         for(int j = 1; j < varray.size(); j++){
             key = varray[j];
             i = j - h;
-            while(i >= 0 && key < varray[i]){
+            while(i >=  varray.size() / 2 && key < varray[i]){
                 varray[i + h] = varray[i];
                 i = i - h;
                 if(C1::compareCount >= varray.size() / 2){
