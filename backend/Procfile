@@ -1,2 +1,2 @@
-web: gunicorn config.asgi:application -k uvicorn.workers.UvicornWorker
+web: daphne config.asgi:application
 release: python manage.py migrate
