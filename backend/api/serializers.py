@@ -9,6 +9,7 @@ class UserListCreateSerializer(serializers.ModelSerializer):
           'first_name', 
           'last_name', 
           'phone_number', 
+          'role',
           'address', 
           'city',
           'state',
