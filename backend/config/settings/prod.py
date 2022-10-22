@@ -21,8 +21,6 @@ DEBUG = False
 ALLOWED_HOSTS = [
     os.environ.get("ALLOWED_HOSTS"),
     ".herokuapp.com",
-    "www.linx.ly",
-    "linx.ly",
 ]
 
 # Application definition
@@ -114,57 +112,6 @@ sentry_sdk.init(
     # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True,
 )
-
-
-# Static files (CSS, JavaScript, Images)
-# S3 Settings
-
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-
-AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
-
-AWS_DEFAULT_ACL = None
-
-AWS_S3_SIGNATURE_VERSION = "s3v4"
-
-AWS_S3_REGION_NAME = os.environ.get("AWS_S3_REGION_NAME")
-
-AWS_QUERYSTRING_EXPIRE = 120
-
-
-# Cloudfront Settings
-
-AWS_S3_CUSTOM_DOMAIN = os.environ.get("AWS_S3_CUSTOM_DOMAIN")
-
-AWS_CLOUDFRONT_KEY = os.environ.get("AWS_CLOUDFRONT_KEY", None).encode("ascii")
-
-AWS_CLOUDFRONT_KEY_ID = os.environ.get("AWS_CLOUDFRONT_KEY_ID", None)
-
-
-# S3 Static Settings
-
-STATICFILES_LOCATION = "static"
-
-STATIC_URL = f"{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/"
-
-STATICFILES_STORAGE = "api.storage.StaticStorage"
-
-
-# S3 Media Settings
-
-MEDIAFILES_LOCATION = "media"
-
-MEDIA_URL = f"{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/"
-
-DEFAULT_FILE_STORAGE = "api.storage.PublicMediaStorage"
-
-
-# Collectfast
-# https://github.com/antonagestam/collectfast
-
-COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 
 
 # Sendgrid Email Settings
