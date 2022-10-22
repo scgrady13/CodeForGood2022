@@ -1,4 +1,5 @@
 # team-19 - Spin the Spectrum
+![DALL·E 2022-10-22 05 26 51 - DJ Spin the Spectrum](https://user-images.githubusercontent.com/72226932/197334260-d8700ec4-bb42-486c-a552-fbc9eec9a570.png)
 
 ![MissionCFG](https://user-images.githubusercontent.com/72226932/197333581-6ffa3d65-16e0-40a3-973b-703396c8e528.png)
 ![ChallengeCFG](https://user-images.githubusercontent.com/72226932/197333708-ecdcdca3-4ae0-43ef-8dbe-ecb7e4d67685.png)
