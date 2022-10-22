@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-export const API_BASE_URL =
-  process.env.NODE_ENV === 'production' ? 'http://146.190.209.138/' : 'http://127.0.0.1:8000/';
+export const API_BASE_URL = 'http://146.190.209.138:8000/';
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,

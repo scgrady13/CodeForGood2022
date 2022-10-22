@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { NavLink as RouterLink } from 'react-router-dom';
 // @mui
 import { Grid, Button, Container, Stack, Typography, Box } from '@mui/material';
 // components
@@ -31,7 +32,7 @@ export default function UserOnboardingPage() {
             })}
         </Box>
         <Box sx={{ flexGrow: 1, textAlign: 'right' }}>
-            <Button sx={{ mt: 5 }} variant="outlined">Submit</Button>
+            <Button component={RouterLink} to={'/dashboard'} sx={{ mt: 5 }} variant="outlined">Submit</Button>
         </Box>
       </Container>
     </>
