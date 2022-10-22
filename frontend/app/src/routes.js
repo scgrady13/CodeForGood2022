@@ -10,6 +10,7 @@ import Page404 from './pages/Page404';
 import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import UserOnboardingPage from './pages/UserOnboardingPage';
+import UserControlPage from './pages/UserControlPage';
 
 const AuthGuard = ({children}) => {
   const access_token = localStorage.getItem('access_token');
@@ -56,6 +57,10 @@ export default function Router() {
     {
       path: '/newstudent/:id',
       element: <UserOnboardingPage />,
+    },
+    {
+      path: '/student/:id',
+      element: <UserControlPage />,
     },
     {
       element: <SimpleLayout />,

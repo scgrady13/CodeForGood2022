@@ -39,7 +39,7 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard | Spin The Spectrum </title>
+        <title> Live Session Dashboard </title>
       </Helmet>
 
       <Modal

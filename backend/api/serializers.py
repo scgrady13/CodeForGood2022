@@ -5,9 +5,8 @@ class StudentListCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-          'email', 
-          'first_name', 
-          'last_name', 
+          'username', 
+          'full_name', 
           'phone_number', 
           'role',
           'address', 
@@ -17,5 +16,8 @@ class StudentListCreateSerializer(serializers.ModelSerializer):
         )
 
     def create(self, validated_data):
-        user = User.objects.create_user(**validated_data, password="RandomPassword")
+        user = User.objects.create_user(
+          **validated_data,password="RandomPassword",
+          role="student"
+        )
         return user

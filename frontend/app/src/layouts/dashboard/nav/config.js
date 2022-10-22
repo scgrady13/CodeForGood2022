@@ -20,11 +20,6 @@ const navConfig = [
     title: 'Past Sessions',
     path: '/dashboard/products',
     icon: icon('ic_cart'),
-  },
-  {
-    title: 'FAQ and Blog',
-    path: '/dashboard/blog',
-    icon: icon('ic_blog'),
   }
 ];
 
