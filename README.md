@@ -37,3 +37,8 @@ Using this parents can use this information to better comfort their child as wel
 Lastly we included an authentication page for the instructors to login into for use of the entire system
 
 ![SignInCFG](https://user-images.githubusercontent.com/72226932/197334415-82388e9d-1565-4537-9910-1e7df89ad7c5.png)
+
+For the student system we implemeneted a survey that is taken by the student when they intially sign up to identify things that cause them discomfort
+
+![studentSurveyCFG](https://user-images.githubusercontent.com/72226932/197335440-da49096b-0030-4fe7-826d-847b9dd223a2.png)
+
