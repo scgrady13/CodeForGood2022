@@ -104,19 +104,18 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
-              title="Conversion Rates"
-              subheader="(+43%) than last year"
+              title="Improvement Rate"
+              subheader="(+16%) than last month"
               chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
+                { label: 'Clay', value: 12 },
+                { label: 'Miguel', value: 30 },
+                { label: 'James', value: 12 },
+                { label: 'Tim', value: 10 },
+                { label: 'charles', value: 31 },
+                { label: 'roberts', value: 20 },
+                { label: 'Sam', value: 26 },
+                { label: 'Daniel', value: 14 },
+                
               ]}
             />
           </Grid>
@@ -124,7 +123,7 @@ export default function DashboardAppPage() {
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject
               title="Current Subject"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
+              chartLabels={['', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
               chartData={[
                 { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
                 { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
@@ -136,7 +135,7 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
-              title="News Update"
+              title="To Do"
               list={[...Array(5)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: faker.name.jobTitle(),
@@ -149,15 +148,15 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppOrderTimeline
-              title="Order Timeline"
+              title="Session Schdule"
               list={[...Array(5)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: [
-                  '1983, orders, $4220',
-                  '12 Invoices have been paid',
-                  'Order #37745 from September',
-                  'New order placed #XF-2356',
-                  'New order placed #XF-2346',
+                  'Session 1',
+                  'Session 2',
+                  'Session 3',
+                  'Session 4',
+                  'Session 5'
                 ][index],
                 type: `order${index + 1}`,
                 time: faker.date.past(),
@@ -171,22 +170,22 @@ export default function DashboardAppPage() {
               list={[
                 {
                   name: 'FaceBook',
-                  value: 323234,
+                  value: 3232,
                   icon: <Iconify icon={'eva:facebook-fill'} color="#1877F2" width={32} />,
                 },
                 {
                   name: 'Google',
-                  value: 341212,
+                  value: 3412,
                   icon: <Iconify icon={'eva:google-fill'} color="#DF3E30" width={32} />,
                 },
                 {
                   name: 'Linkedin',
-                  value: 411213,
+                  value: 4113,
                   icon: <Iconify icon={'eva:linkedin-fill'} color="#006097" width={32} />,
                 },
                 {
                   name: 'Twitter',
-                  value: 443232,
+                  value: 4432,
                   icon: <Iconify icon={'eva:twitter-fill'} color="#1C9CEA" width={32} />,
                 },
               ]}
@@ -195,13 +194,12 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppTasks
-              title="Tasks"
+              title="Agenda For The Day"
               list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
+                { id: '1', label: 'Recap from yesterday class' },
+                { id: '2', label: 'DJ with' },
+                { id: '3', label: 'Lunch with volunteers' },
+                { id: '4', label: 'Wrap up for the day' },
               ]}
             />
           </Grid>
