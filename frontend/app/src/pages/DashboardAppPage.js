@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Grid, Container, Typography } from '@mui/material';
+import { Grid, Container, Typography, Box, Button } from '@mui/material';
 // components
 import Iconify from '../components/iconify';
 // sections
@@ -32,9 +32,21 @@ export default function DashboardAppPage() {
       </Helmet>
 
       <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Courtney
-        </Typography>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'left' }}>
+          <Box>
+            <Typography variant="h4">
+              Hi, Courtney
+            </Typography>
+
+            <Typography variant="h3" sx={{ mb: 5 }}>
+              10/22 Session
+            </Typography>
+          </Box>
+          <Box>
+            <Button sx={{ ml: 3 }} variant="outlined">Add Student</Button>
+          </Box>
+        </Box>
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12} md={12}>
@@ -86,12 +98,12 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
-              title="Current Visits"
+              title="Age Group"
               chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
+                { label: '8-13', value: 3124 },
+                { label: '13-16', value: 5435 },
+                { label: '16-21', value: 2455 },
+                { label: '21+', value: 2314 },
               ]}
               chartColors={[
                 theme.palette.primary.main,
@@ -104,40 +116,39 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
-              title="Conversion Rates"
-              subheader="(+43%) than last year"
+              title="Average Improvement Rate"
+              subheader="(+1.42%) than last month"
               chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
+                { label: 'Clay', value: 12 },
+                { label: 'Miguel', value: 14 },
+                { label: 'James', value: 12 },
+                { label: 'Tim', value: 10 },
+                { label: 'charles', value: 13 },
+                { label: 'roberts', value: 14 },
+                { label: 'Sam', value: 13 },
+                { label: 'Daniel', value: 14 },
+                
               ]}
             />
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject
-              title="Current Subject"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
+              title="Where Training is Needed"
+              chartLabels={['10' ,'20', '30', '40', '50', '60']}
               chartData={[
-                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
+                { name: 'Hearing', data: [80, 50, 30, 40, 100, 20] },
+                { name: 'Vision', data: [20, 30, 40, 80, 20, 80] },
+                { name: 'Concentration', data: [44, 76, 78, 13, 43, 10] },
               ]}
-              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
+              chartColors={[...Array(3)].map(() => theme.palette.text.secondary)}
             />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
-              title="News Update"
-              list={[...Array(5)].map((_, index) => ({
+              title="To Do"
+              list={[...Array(6)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: faker.name.jobTitle(),
                 description: faker.name.jobTitle(),
@@ -149,15 +160,15 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppOrderTimeline
-              title="Order Timeline"
+              title="Session Schdule"
               list={[...Array(5)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: [
-                  '1983, orders, $4220',
-                  '12 Invoices have been paid',
-                  'Order #37745 from September',
-                  'New order placed #XF-2356',
-                  'New order placed #XF-2346',
+                  'Session 1',
+                  'Session 2',
+                  'Session 3',
+                  'Session 4',
+                  'Session 5'
                 ][index],
                 type: `order${index + 1}`,
                 time: faker.date.past(),
@@ -171,22 +182,22 @@ export default function DashboardAppPage() {
               list={[
                 {
                   name: 'FaceBook',
-                  value: 323234,
+                  value: 3232,
                   icon: <Iconify icon={'eva:facebook-fill'} color="#1877F2" width={32} />,
                 },
                 {
                   name: 'Google',
-                  value: 341212,
+                  value: 3412,
                   icon: <Iconify icon={'eva:google-fill'} color="#DF3E30" width={32} />,
                 },
                 {
                   name: 'Linkedin',
-                  value: 411213,
+                  value: 4113,
                   icon: <Iconify icon={'eva:linkedin-fill'} color="#006097" width={32} />,
                 },
                 {
                   name: 'Twitter',
-                  value: 443232,
+                  value: 4432,
                   icon: <Iconify icon={'eva:twitter-fill'} color="#1C9CEA" width={32} />,
                 },
               ]}
@@ -195,13 +206,12 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppTasks
-              title="Tasks"
+              title="Agenda For The Day"
               list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
+                { id: '1', label: 'Recap from yesterday class' },
+                { id: '2', label: 'DJ with' },
+                { id: '3', label: 'Lunch with volunteers' },
+                { id: '4', label: 'Wrap up for the day' },
               ]}
             />
           </Grid>
