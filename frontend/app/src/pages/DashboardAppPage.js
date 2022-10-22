@@ -1,40 +1,105 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { faker } from '@faker-js/faker';
+import useThrottle from '../hooks/useThrottle';
 // @mui
-import { useTheme } from '@mui/material/styles';
-import { Grid, Container, Typography } from '@mui/material';
+import { Autocomplete, Box, Button, Container, Grid, Modal, TextField, Typography } from '@mui/material';
+import { axiosInstance } from '../lib/axios';
+import { AppUserData } from '../sections/@dashboard/app';
 // components
-import Iconify from '../components/iconify';
-// sections
-import {
-  AppTasks,
-  AppNewsUpdate,
-  AppOrderTimeline,
-  AppCurrentVisits,
-  AppWebsiteVisits,
-  AppTrafficBySite,
-  AppWidgetSummary,
-  AppCurrentSubject,
-  AppConversionRates,
-  AppUserData,
-} from '../sections/@dashboard/app';
-
-// ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
-  const theme = useTheme();
+  const [open, setOpen] = useState(false);
+  const [id, setId] = useState('');
+  const [name, setName] = useState('');
+  const [students, setStudents] = useState([]);
+  const nameThrottle = useThrottle(name, 500);
+
+  const handleClose = () => {
+    setOpen(false);
+  }
+
+  const handleOpen = () => {
+    setOpen(true);
+  }
+
+  const API_URL = process.env.PRODUCTION ? 'http://146.190.209.138:8000' : 'http://localhost:8000';
+
+  useEffect(() => {
+    axiosInstance.get(`${API_URL}/api/v1/students/?full_name=${nameThrottle}`)
+      .then((response) => {
+        setStudents(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nameThrottle]);
+
 
   return (
     <>
       <Helmet>
-        <title> Dashboard | Minimal UI </title>
+        <title> Dashboard | Spin The Spectrum </title>
       </Helmet>
 
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        style={{display:'flex',alignItems:'center',justifyContent:'center'}}
+      >
+        <Box sx={{ p: 5, backgroundColor: 'white', borderRadius: 5, maxWidth: 600, textAlign: 'center' }}>
+          <Typography variant="h4" sx={{ mb: 4 }}>
+            Select a student to track their behavior
+          </Typography>
+          <Autocomplete
+            freeSolo
+            onInputChange = {(event, newInputValue) => {
+              setName(newInputValue);
+            }}
+            options={students.map((option) => option.id)}
+            onChange={(event, newValue) => {
+              setId(newValue);
+            }}
+            renderInput={(params) => <TextField {...params} label="Full name" />}
+          />
+
+          <Button
+            variant="contained"
+            sx={{ mt: 4 }}
+            onClick={() => {
+              console.log(id);
+            }}
+          >
+            Submit
+          </Button>
+              
+          {/* <QRCode 
+            size={256}
+            style={{ height: "200", maxWidth: "200", width: "200" }}
+            value={`/student/${id}`}
+            viewBox={`0 0 256 256`}
+          /> */}
+        </Box>
+      </Modal>
+
       <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Courtney
-        </Typography>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'left' }}>
+          <Box>
+            <Typography variant="h4">
+              Hi, Courtney
+            </Typography>
+
+            <Typography variant="h3" sx={{ mb: 5 }}>
+              10/22 Session
+            </Typography>
+          </Box>
+          <Box>
+            <Button sx={{ ml: 3 }} onClick={handleOpen} variant="outlined">Add Student</Button>
+          </Box>
+        </Box>
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12} md={12}>
@@ -48,162 +113,6 @@ export default function DashboardAppPage() {
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
             <AppUserData title="Item Orders" total={1723315} color="background" />
-          </Grid>
-
-
-
-          <Grid item xs={12} sm={12} md={12}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppWebsiteVisits
-              title="Website Visits"
-              subheader="(+43%) than last year"
-              chartLabels={[
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-                '07/01/2003',
-                '08/01/2003',
-                '09/01/2003',
-                '10/01/2003',
-                '11/01/2003',
-              ]}
-              chartData={[
-                {
-                  name: 'Team C',
-                  type: 'line',
-                  fill: 'solid',
-                  data: [1,2,2,3],
-                },
-              ]}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentVisits
-              title="Current Visits"
-              chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
-              ]}
-              chartColors={[
-                theme.palette.primary.main,
-                theme.palette.info.main,
-                theme.palette.warning.main,
-                theme.palette.error.main,
-              ]}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppConversionRates
-              title="Conversion Rates"
-              subheader="(+43%) than last year"
-              chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
-              ]}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentSubject
-              title="Current Subject"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
-              chartData={[
-                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
-              ]}
-              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppNewsUpdate
-              title="News Update"
-              list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: faker.name.jobTitle(),
-                description: faker.name.jobTitle(),
-                image: `/assets/images/covers/cover_${index + 1}.jpg`,
-                postedAt: faker.date.recent(),
-              }))}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppOrderTimeline
-              title="Order Timeline"
-              list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: [
-                  '1983, orders, $4220',
-                  '12 Invoices have been paid',
-                  'Order #37745 from September',
-                  'New order placed #XF-2356',
-                  'New order placed #XF-2346',
-                ][index],
-                type: `order${index + 1}`,
-                time: faker.date.past(),
-              }))}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppTrafficBySite
-              title="Traffic by Site"
-              list={[
-                {
-                  name: 'FaceBook',
-                  value: 323234,
-                  icon: <Iconify icon={'eva:facebook-fill'} color="#1877F2" width={32} />,
-                },
-                {
-                  name: 'Google',
-                  value: 341212,
-                  icon: <Iconify icon={'eva:google-fill'} color="#DF3E30" width={32} />,
-                },
-                {
-                  name: 'Linkedin',
-                  value: 411213,
-                  icon: <Iconify icon={'eva:linkedin-fill'} color="#006097" width={32} />,
-                },
-                {
-                  name: 'Twitter',
-                  value: 443232,
-                  icon: <Iconify icon={'eva:twitter-fill'} color="#1C9CEA" width={32} />,
-                },
-              ]}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppTasks
-              title="Tasks"
-              list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
-              ]}
-            />
           </Grid>
         </Grid>
       </Container>

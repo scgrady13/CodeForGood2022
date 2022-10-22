@@ -11,7 +11,11 @@ const ApexChart = ({ data }) => {
                 series={[
                     {
                         name: "Beats per Minute",
-                        data: data?.slice(-60).map(data => data.bid)
+                        data: data?.slice(-60).map(data => data)
+                    },
+                    {
+                        name: "Body Temperature",
+                        data: data?.slice(-60).map(data => data + 5)
                     }
                 ]}
 
@@ -24,11 +28,11 @@ const ApexChart = ({ data }) => {
                             enabled: false
                         }
                     },
-                    colors: ['#f90000'],
+                    colors: ['#f90000', '#82aef5'],
                     stroke: { width: 1, curve: 'smooth' },
                     dataLabels: { enabled: false },
                     xaxis: {
-                        categories: data?.slice(-60).map(data => data.bid),
+                        categories: data?.slice(-60).map(data => data),
                         labels: {
                             show: false,
                         },
