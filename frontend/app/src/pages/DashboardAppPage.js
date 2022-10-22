@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { faker } from '@faker-js/faker';
 // @mui
@@ -16,6 +17,7 @@ import {
   AppWidgetSummary,
   AppCurrentSubject,
   AppConversionRates,
+  AppUserData,
 } from '../sections/@dashboard/app';
 
 // ----------------------------------------------------------------------
@@ -35,6 +37,21 @@ export default function DashboardAppPage() {
         </Typography>
 
         <Grid container spacing={3}>
+          <Grid item xs={12} sm={12} md={12}>
+            <AppUserData title="Item Orders" total={1723315} color="background" />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            <AppUserData title="Item Orders" total={1723315} color="background" />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            <AppUserData title="Item Orders" total={1723315} color="background" />
+          </Grid>
+          <Grid item xs={12} sm={12} md={12}>
+            <AppUserData title="Item Orders" total={1723315} color="background" />
+          </Grid>
+
+
+
           <Grid item xs={12} sm={12} md={12}>
             <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
           </Grid>

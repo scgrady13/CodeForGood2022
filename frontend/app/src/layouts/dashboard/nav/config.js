@@ -30,7 +30,6 @@ const navConfig = [
     title: 'login',
     path: '/login',
     icon: icon('ic_lock'),
-    
   },
   
 ];
