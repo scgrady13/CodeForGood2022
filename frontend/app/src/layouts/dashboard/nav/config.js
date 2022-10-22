@@ -31,11 +31,11 @@ const navConfig = [
     path: '/login',
     icon: icon('ic_lock'),
   },
-  {
-    title: 'Page404',
-    path: '/page404',
-    icon: icon('ic_cart'),
-  }
+  // {
+  //   title: 'Page404',
+  //   path: '/page404',
+  //   icon: icon('ic_cart'),
+  // }
   
 ];
 

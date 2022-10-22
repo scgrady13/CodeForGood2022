@@ -38,7 +38,7 @@ const TABLE_HEAD = [
 
   { id: 'company', label: 'ID Number', alignRight: false },
   { id: 'role', label: 'Triggers', alignRight: false },
-  { id: 'isVerified', label: 'Parent Present', alignRight: false },
+  { id: 'isVerified', label: 'Improvement', alignRight: false },
   { id: 'status', label: 'Attendee', alignRight: false },
 ];
 
