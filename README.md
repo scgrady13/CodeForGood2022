@@ -18,7 +18,7 @@ tap on a screen for what is the reason they are being caused discomfort if it ra
 
 Each student that participates inside of Spin the Spectrum will be given account as shown below
 
-![ProfilesCFG](https://user-images.githubusercontent.com/72226932/197333923-128b3502-526c-4735-91a9-ebf72a79ea35.png)
+![usersCFG](https://user-images.githubusercontent.com/72226932/197334478-2f635e6d-398b-49c5-ba3e-0df18d30047b.png)
 
 Inside this profile there will be key data held such as triggers, their progress on their program, and numerous other items that allow for an instructor to tailor the care that they give to each individual student
 
