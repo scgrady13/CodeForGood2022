@@ -15,19 +15,19 @@ import UserOnboardingPage from './pages/UserOnboardingPage';
 // ----------------------------------------------------------------------
 
 const AuthGuard = ({children}) => {
-  const [access_token] = useLocalStorage('access_token', null);
-  if (!access_token) {
-    return <Navigate to="/login" />;
-  }
+  // const [access_token] = useLocalStorage('access_token', null);
+  // if (!access_token) {
+  //   return <Navigate to="/login" />;
+  // }
 
   return children;
 };
 
 const AnynomousGuard = ({children}) => {
-  const [access_token] = useLocalStorage('access_token', null);
-  if (access_token) {
-    return <Navigate to="/dashboard" />;
-  }
+  // const [access_token] = useLocalStorage('access_token', null);
+  // if (access_token) {
+  //   return <Navigate to="/dashboard" />;
+  // }
 
   return children;
 };
