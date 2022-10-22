@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Grid, Container, Typography } from '@mui/material';
+import { Grid, Container, Typography, Box, Button } from '@mui/material';
 // components
 import Iconify from '../components/iconify';
 // sections
@@ -32,9 +32,21 @@ export default function DashboardAppPage() {
       </Helmet>
 
       <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Courtney
-        </Typography>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'left' }}>
+          <Box>
+            <Typography variant="h4">
+              Hi, Courtney
+            </Typography>
+
+            <Typography variant="h3" sx={{ mb: 5 }}>
+              10/22 Session
+            </Typography>
+          </Box>
+          <Box>
+            <Button sx={{ ml: 3 }} variant="outlined">Add Student</Button>
+          </Box>
+        </Box>
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12} md={12}>
