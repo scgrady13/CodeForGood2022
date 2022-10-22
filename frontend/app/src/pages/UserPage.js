@@ -35,10 +35,10 @@ import USERLIST from '../_mock/user';
 
 const TABLE_HEAD = [
   { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
-  { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'status', label: 'Status', alignRight: false },
+  { id: 'parentname', label: 'Parent Name', alignRight: false },
+  { id: 'odds of autism', label: 'Probability of autism', alignRight: false },
+  { id: 'isVerified', label: 'Special attention', alignRight: false },
+  { id: 'status', label: 'Distracted', alignRight: false },
   { id: '' },
 ];
 
