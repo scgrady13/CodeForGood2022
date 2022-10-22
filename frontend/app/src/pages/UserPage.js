@@ -35,11 +35,11 @@ import USERLIST from '../_mock/user';
 
 const TABLE_HEAD = [
   { id: 'name', label: 'Name', alignRight: false },
-  { id: 'parentname', label: 'Parent Name', alignRight: false },
-  { id: 'odds of autism', label: 'Probability of autism', alignRight: false },
-  { id: 'isVerified', label: 'Special attention', alignRight: false },
-  { id: 'status', label: 'Distracted', alignRight: false },
-  { id: '' },
+
+  { id: 'company', label: 'ID Number', alignRight: false },
+  { id: 'role', label: 'Triggers', alignRight: false },
+  { id: 'isVerified', label: 'Parent Present', alignRight: false },
+  { id: 'status', label: 'Attendee', alignRight: false },
 ];
 
 // ----------------------------------------------------------------------
@@ -204,7 +204,7 @@ export default function UserPage() {
                         <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
 
                         <TableCell align="left">
-                          <Label color={(status === 'banned' && 'error') || 'success'}>{sentenceCase(status)}</Label>
+                          <Label color={(status === 'inactive' && 'error') || 'success'}>{sentenceCase(status)}</Label>
                         </TableCell>
 
                         <TableCell align="right">
