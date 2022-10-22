@@ -46,7 +46,7 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login | Minimal UI </title>
+        <title> Login | Spin The Spectrum </title>
       </Helmet>
 
       <StyledRoot>
@@ -70,7 +70,7 @@ export default function LoginPage() {
         <Container maxWidth="sm">
           <StyledContent>
             <Typography variant="h4" gutterBottom>
-              <center>Sign in to your instructor account</center>
+              Sign in to Spin The Spectrum
             </Typography>
 
             
