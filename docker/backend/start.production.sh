@@ -1,3 +1,3 @@
 #!/bin/sh
 
-gunicorn --bind 0.0.0.0:8000 -w 2
+daphne djangito.asgi:application --port=8000 --bind 0.0.0.0 -v2
