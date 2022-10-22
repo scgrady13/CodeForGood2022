@@ -1,2 +1,2 @@
-web: gunicorn config.asgi:application --port $PORT -w 2 -k uvicorn.workers.UvicornWorker	
+web: gunicorn config.asgi:application -w 2 -k uvicorn.workers.UvicornWorker	
 release: python manage.py migrate
