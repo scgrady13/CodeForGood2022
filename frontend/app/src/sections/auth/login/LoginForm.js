@@ -26,8 +26,8 @@ export default function LoginForm() {
         password,
       })
       .then((res) => {
-        localStorage.setItem('access_token', res.access);
-        localStorage.setItem('refresh_token', res.refresh);
+        localStorage.setItem('access_token', res.data.access);
+        localStorage.setItem('refresh_token', res.data.refresh);
         navigate('/dashboard', { replace: true });
       })
       .catch(() => {
