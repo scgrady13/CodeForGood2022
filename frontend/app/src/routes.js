@@ -1,5 +1,4 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-import useLocalStorage from './hooks/useLocalStorage';
 // layouts
 import DashboardLayout from './layouts/dashboard';
 import SimpleLayout from './layouts/simple';
@@ -12,22 +11,21 @@ import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import UserOnboardingPage from './pages/UserOnboardingPage';
 
-// ----------------------------------------------------------------------
-
 const AuthGuard = ({children}) => {
-  // const [access_token] = useLocalStorage('access_token', null);
-  // if (!access_token) {
-  //   return <Navigate to="/login" />;
-  // }
+  const access_token = localStorage.getItem('access_token');
+  if (!access_token) {
+    return <Navigate to="/login" />;
+  }
 
   return children;
 };
 
 const AnynomousGuard = ({children}) => {
-  // const [access_token] = useLocalStorage('access_token', null);
-  // if (access_token) {
-  //   return <Navigate to="/dashboard" />;
-  // }
+  const access_token = localStorage.getItem('access_token');
+
+  if (access_token) {
+    return <Navigate to="/dashboard" />;
+  }
 
   return children;
 };
