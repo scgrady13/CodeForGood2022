@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { faker } from '@faker-js/faker';
 // @mui
@@ -5,6 +6,7 @@ import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
 // components
 import Iconify from '../components/iconify';
+import ApexChart from "../components/timeseries";
 // sections
 import {
   AppTasks,
@@ -22,6 +24,14 @@ import {
 
 export default function DashboardAppPage() {
   const theme = useTheme();
+  const [testData, setTestData] = useState([]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTestData(testData => [...testData, {bid: Math.floor(Math.random() * 10) + 60}]);
+    }, 500);
+    return () => { clearInterval(timer) }
+  }, []);
 
   return (
     <>
@@ -37,6 +47,7 @@ export default function DashboardAppPage() {
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12} md={12}>
             <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
+            <ApexChart data={testData}/>
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
