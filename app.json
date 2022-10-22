@@ -1,0 +1,26 @@
+{
+  "name": "Linx",
+  "env": {
+    "PROJECT_PATH": "backend",
+    "SECRET_KEY": {
+      "description": "Django Secret Key",
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "review": {
+      "env": {
+        "ENVIRONMENT": "review"
+      }
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/timanovsky/subdir-heroku-buildpack"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "addons": ["heroku-postgresql:hobby-dev", "heroku-redis:hobby-dev"]
+}
