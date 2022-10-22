@@ -23,11 +23,6 @@ ALLOWED_HOSTS = [
     ".herokuapp.com",
 ]
 
-# Application definition
-
-INSTALLED_APPS = settings.INSTALLED_APPS
-
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
