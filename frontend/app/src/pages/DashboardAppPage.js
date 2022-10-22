@@ -86,12 +86,12 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
-              title="Current Visits"
+              title="Age Group"
               chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
+                { label: '8-13', value: 3124 },
+                { label: '13-16', value: 5435 },
+                { label: '16-21', value: 2455 },
+                { label: '21+', value: 2314 },
               ]}
               chartColors={[
                 theme.palette.primary.main,
@@ -104,16 +104,16 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
-              title="Improvement Rate"
-              subheader="(+16%) than last month"
+              title="Average Improvement Rate"
+              subheader="(+1.42%) than last month"
               chartData={[
                 { label: 'Clay', value: 12 },
-                { label: 'Miguel', value: 30 },
+                { label: 'Miguel', value: 14 },
                 { label: 'James', value: 12 },
                 { label: 'Tim', value: 10 },
-                { label: 'charles', value: 31 },
-                { label: 'roberts', value: 20 },
-                { label: 'Sam', value: 26 },
+                { label: 'charles', value: 13 },
+                { label: 'roberts', value: 14 },
+                { label: 'Sam', value: 13 },
                 { label: 'Daniel', value: 14 },
                 
               ]}
@@ -122,21 +122,21 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject
-              title="Current Subject"
-              chartLabels={['', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
+              title="Where Training is Needed"
+              chartLabels={['10' ,'20', '30', '40', '50', '60']}
               chartData={[
-                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
+                { name: 'Hearing', data: [80, 50, 30, 40, 100, 20] },
+                { name: 'Vision', data: [20, 30, 40, 80, 20, 80] },
+                { name: 'Concentration', data: [44, 76, 78, 13, 43, 10] },
               ]}
-              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
+              chartColors={[...Array(3)].map(() => theme.palette.text.secondary)}
             />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
               title="To Do"
-              list={[...Array(5)].map((_, index) => ({
+              list={[...Array(6)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: faker.name.jobTitle(),
                 description: faker.name.jobTitle(),
