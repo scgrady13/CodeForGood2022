@@ -11,13 +11,33 @@ import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import UserOnboardingPage from './pages/UserOnboardingPage';
 
-// ----------------------------------------------------------------------
+const AuthGuard = ({children}) => {
+  const access_token = localStorage.getItem('access_token');
+  if (!access_token) {
+    return <Navigate to="/login" />;
+  }
+
+  return children;
+};
+
+const AnynomousGuard = ({children}) => {
+  const access_token = localStorage.getItem('access_token');
+
+  if (access_token) {
+    return <Navigate to="/dashboard" />;
+  }
+
+  return children;
+};
 
 export default function Router() {
   const routes = useRoutes([
     {
       path: '/dashboard',
-      element: <DashboardLayout />,
+      element: 
+        <AuthGuard>
+          <DashboardLayout />
+        </AuthGuard>,
       children: [
         { element: <Navigate to="/dashboard/app" />, index: true },
         { path: 'app', element: <DashboardAppPage /> },
@@ -28,7 +48,10 @@ export default function Router() {
     },
     {
       path: 'login',
-      element: <LoginPage />,
+      element: 
+        <AnynomousGuard>
+          <LoginPage />
+        </AnynomousGuard>,
     },
     {
       path: '/newstudent/:id',

@@ -1,12 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Link, Container, Typography, Divider, Stack, Button } from '@mui/material';
+import {  Container, Typography, Divider } from '@mui/material';
 // hooks
 import useResponsive from '../hooks/useResponsive';
 // components
 import Logo from '../components/logo';
-import Iconify from '../components/iconify';
 // sections
 import { LoginForm } from '../sections/auth/login';
 
@@ -46,7 +45,7 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login | Minimal UI </title>
+        <title> Login | Spin The Spectrum </title>
       </Helmet>
 
       <StyledRoot>
@@ -59,18 +58,18 @@ export default function LoginPage() {
         />
 
         {mdUp && (
-          <StyledSection>
+          <StyledSection sx={{ p: 5, textAlign: 'center' }}>
             <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
               Hi, Welcome Back
             </Typography>
-            <img src="/assets/illustrations/illustration_login.png" alt="login" />
+            <img src="/assets/logo.png" alt="login" />
           </StyledSection>
         )}
 
         <Container maxWidth="sm">
           <StyledContent>
             <Typography variant="h4" gutterBottom>
-              <center>Sign in to your instructor account</center>
+              Sign in to Spin The Spectrum
             </Typography>
 
             
