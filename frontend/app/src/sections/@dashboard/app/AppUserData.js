@@ -36,7 +36,7 @@ export default function AppUserData({ title, total, icon, color = 'primary', sx,
 
     useEffect(() => {
       const timer = setInterval(() => {
-        setTestData(testData => [...testData, testData.at(-1) * .85 + Math.floor(Math.random() * 20) + 15 * .15]);
+        setTestData(testData => [...testData, testData.at(-1) * .95 + (Math.floor(Math.random() * 80) + 50) * .05]);
       }, 500);
       return () => { clearInterval(timer) }
     }, []);

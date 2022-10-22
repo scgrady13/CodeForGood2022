@@ -25,18 +25,7 @@ const navConfig = [
     title: 'FAQ and Blog',
     path: '/dashboard/blog',
     icon: icon('ic_blog'),
-  },
-  {
-    title: 'login',
-    path: '/login',
-    icon: icon('ic_lock'),
-  },
-  // {
-  //   title: 'Page404',
-  //   path: '/page404',
-  //   icon: icon('ic_cart'),
-  // }
-  
+  }
 ];
 
 export default navConfig;
