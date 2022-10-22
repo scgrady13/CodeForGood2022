@@ -3,6 +3,7 @@ import { faker } from '@faker-js/faker';
 // ----------------------------------------------------------------------
 
 const POST_TITLES = [
+
   'Inclusive DJ Education Classes',
   'Inclusive Music Production Classe',
   'FAQ Documentation',
@@ -27,9 +28,10 @@ const POST_TITLES = [
   'Article Title - Author',
   'Article Title - Author',
   'Article Title - Author',
+
 ];
 
-const posts = [...Array(23)].map((_, index) => ({
+const posts = [...Array(11)].map((_, index) => ({
   id: faker.datatype.uuid(),
   cover: `/assets/images/covers/cover_${index + 1}.jpg`,
   title: POST_TITLES[index + 1],

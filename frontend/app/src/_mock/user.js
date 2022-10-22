@@ -22,6 +22,7 @@ const users = [...Array(24)].map((_, index) => ({
     '48153168',
   ]),
   isVerified: faker.datatype.boolean(),
+
   status: sample(['active', 'inactive']),
   role: sample([
     'Bright Lights',
@@ -31,7 +32,9 @@ const users = [...Array(24)].map((_, index) => ({
     'High Stimuli',
     'Patience',
     'Spacial Area',
+
   ]),
 }));
+
 
 export default users;

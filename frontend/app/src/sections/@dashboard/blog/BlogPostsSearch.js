@@ -9,7 +9,7 @@ import Iconify from '../../../components/iconify';
 // ----------------------------------------------------------------------
 
 const StyledPopper = styled((props) => <Popper placement="bottom-start" {...props} />)({
-  width: '280px !important',
+  width: '400px !important',
 });
 
 // ----------------------------------------------------------------------
@@ -21,7 +21,7 @@ BlogPostsSearch.propTypes = {
 export default function BlogPostsSearch({ posts }) {
   return (
     <Autocomplete
-      sx={{ width: 280 }}
+      sx={{ width: 1000 }}
       autoHighlight
       popupIcon={null}
       PopperComponent={StyledPopper}
