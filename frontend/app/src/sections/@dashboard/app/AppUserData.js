@@ -36,7 +36,7 @@ export default function AppUserData({ title, total, icon, color = 'primary', sx,
 
     useEffect(() => {
       const timer = setInterval(() => {
-        setTestData(testData => [...testData, testData.at(-1) * .85 + Math.floor(Math.random() * 15) + 15 * .15]);
+        setTestData(testData => [...testData, testData.at(-1) * .85 + Math.floor(Math.random() * 20) + 15 * .15]);
       }, 500);
       return () => { clearInterval(timer) }
     }, []);
@@ -49,7 +49,7 @@ export default function AppUserData({ title, total, icon, color = 'primary', sx,
             boxShadow: 0,
             textAlign: 'center',
             color: (theme) => theme.palette[color].darker,
-            bgcolor: (theme) => theme.palette[testData.at(-1) < 62 ? "background" : "error"].lighter,
+            bgcolor: (theme) => theme.palette[testData.at(-1) < 95 ? "background" : "error"].lighter,
             ...sx,
         }}
         {...other}
@@ -68,7 +68,7 @@ export default function AppUserData({ title, total, icon, color = 'primary', sx,
                     <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'left' }}>
                         <Box sx={{ flexBasis: 125 }}>
                             <Typography variant="h4" color="#eb7971">{testData.at(-1).toFixed(0)} BPM</Typography>
-                            <Typography variant="h4" color="#82aef5">{testData.at(-1).toFixed(0)} F</Typography>
+                            <Typography variant="h4" color="#82aef5">{testData.at(-1).toFixed(0)} °F</Typography>
                         </Box>
                         <Box sx={{ flexGrow: 1, alignItems: 'center' }}>
                             <ApexChart data={testData} />
