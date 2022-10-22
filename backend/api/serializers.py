@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from apiauth.models import User
 
-class UserListCreateSerializer(serializers.ModelSerializer):
+class StudentListCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (

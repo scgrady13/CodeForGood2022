@@ -1,12 +1,16 @@
 from rest_framework import generics
 from apiauth.models import User
 
-from .serializers import UserListCreateSerializer
+from .serializers import StudentListCreateSerializer
 
-class UserListCreate(generics.ListCreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserListCreateSerializer
+class StudentListCreate(generics.ListCreateAPIView):
+    serializer_class = StudentListCreateSerializer
 
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserListCreateSerializer
+    def get_queryset(self):
+        full_name = self.kwargs.get('full_name', None)
+        return User.objects.filter(role='student', full_name__icontains=full_name)
+
+
+class StudentDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.filter(role='student')
+    serializer_class = StudentListCreateSerializer
