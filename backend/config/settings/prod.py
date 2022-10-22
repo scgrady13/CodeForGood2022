@@ -25,7 +25,7 @@ ALLOWED_HOSTS = [
 
 # Application definition
 
-INSTALLED_APPS = ["collectfast"] + settings.INSTALLED_APPS
+INSTALLED_APPS = settings.INSTALLED_APPS
 
 
 # Database
@@ -113,7 +113,6 @@ sentry_sdk.init(
     send_default_pii=True,
 )
 
-COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 
 
 # Sendgrid Email Settings
