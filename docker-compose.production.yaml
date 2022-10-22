@@ -10,7 +10,7 @@ services:
     volumes:
       - c4g_postgres_data:/var/lib/postgresql/data
     env_file:
-      - .env.staging
+      - .env
 
   # Django App
   backend:
@@ -21,7 +21,7 @@ services:
     ports:
       - 8000:8000
     env_file:
-      - .env.staging
+      - .env
     volumes:
       - ./backend:/app
     command: /start.sh
@@ -36,17 +36,7 @@ services:
     ports:
       - 6379:6379
     env_file:
-      - .env.staging
-
-  nginx:
-    build:
-      context: .
-      dockerfile: ./docker/nginx/Dockerfile
-    restart: always
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
+      - .env
 
 volumes:
   c4g_postgres_data:
