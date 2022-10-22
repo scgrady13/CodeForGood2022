@@ -26,4 +26,14 @@ Next there is a page that allows for an instuctor to review past sessions
 
 ![PastSessionCFG](https://user-images.githubusercontent.com/72226932/197333978-5a975164-7ac8-4208-96ee-80febd1ae15d.png)
 
-By using this process of having film to review instructors can identify key moments or events that were shown to be the point that impacted the student the most before they became overwhelmed
+By using this process of having film to review instructors can identify key moments or events that were shown to be the point that impacted the student the most before they became overwhelmed and use that information to better set up the evniornemnt the student works in.
+
+We then included a blog for communication on topics that go from specifically to Spin the Spectrum as well as general help topics useful for parents
+
+![BlogCFG](https://user-images.githubusercontent.com/72226932/197334368-be196d79-7616-4cfb-83b5-e195c156b302.png)
+
+Using this parents can use this information to better comfort their child as well as communicate with parents who are in similar situations as their own.
+
+Lastly we included an authentication page for the instructors to login into for use of the entire system
+
+![SignInCFG](https://user-images.githubusercontent.com/72226932/197334415-82388e9d-1565-4537-9910-1e7df89ad7c5.png)
