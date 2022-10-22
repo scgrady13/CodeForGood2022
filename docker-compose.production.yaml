@@ -1,0 +1,52 @@
+version: "3.8"
+services:
+  # Postgres Database
+  postgres:
+    container_name: c4g_postgres
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - c4g_postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env.staging
+
+  # Django App
+  backend:
+    container_name: c4g_django
+    build:
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+    ports:
+      - 8000:8000
+    env_file:
+      - .env.staging
+    volumes:
+      - ./backend:/app
+    command: /start.sh
+    depends_on:
+      - postgres
+
+  # Redis
+  redis:
+    container_name: c4g_redis
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
+    env_file:
+      - .env.staging
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  c4g_postgres_data:
