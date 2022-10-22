@@ -8,9 +8,9 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
-COPY frontend/package.json ./
+COPY frontend/app/package.json ./
 
-COPY frontend/yarn.lock ./
+COPY frontend/app/yarn.lock ./
 
 RUN yarn
 

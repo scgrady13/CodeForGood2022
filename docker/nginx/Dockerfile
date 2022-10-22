@@ -1,10 +1,10 @@
 FROM node:lts-alpine3.12 as build
 
 WORKDIR /frontend
-COPY ./frontend/package.json ./
-COPY ./frontend/yarn.lock ./
+COPY ./frontend/app/package.json ./
+COPY ./frontend/app/yarn.lock ./
 RUN yarn install
-COPY ./frontend/ ./
+COPY ./frontend/app/ ./
 RUN yarn build
 
 
