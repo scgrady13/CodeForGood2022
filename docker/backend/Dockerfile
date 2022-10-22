@@ -7,7 +7,8 @@ WORKDIR /app
 
 RUN apt-get update \
     && apt-get -y install libpq-dev python3-dev gcc \
-    && pip install psycopg2
+    && pip install psycopg2-binary
+
 
 # Install requirements
 COPY ./backend/requirements.txt /requirements.txt
