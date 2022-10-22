@@ -8,7 +8,9 @@ class StudentListCreate(generics.ListCreateAPIView):
 
     def get_queryset(self):
         full_name = self.kwargs.get('full_name', None)
-        return User.objects.filter(role='student', full_name__icontains=full_name)
+        if full_name is not None:
+          return User.objects.filter(role='student', full_name__icontains=full_name)
+        return User.objects.filter(role='student')
 
 
 class StudentDetail(generics.RetrieveUpdateDestroyAPIView):
